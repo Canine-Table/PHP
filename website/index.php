@@ -304,22 +304,125 @@
 ------------------------------( Part Four Comments Above )------------------------------->
 
 <?php
+    $age = 21;
 
+    if($age >= 18){
+        echo "You may enter this site.<br>";
+    } elseif($age < 0) {
+        echo "You have not been born yet.<br>";
+    } elseif($age == 0) {
+        echo "You were just born.<br>";
+    } else {
+        echo "are to young to enter this site.<br>";
+    }
 
 ?>
-
-
 
 <!------------------------------( Part Five Comments Below )------------------------------
     ______________________________________________________________________________________
 
+    Logical Operators
+    if(condition1 && condition2 || !condition3)
+    ______________________________________________________________________________________
+
+    &&
+    True if both the left and right conditions are true
+    ______________________________________________________________________________________
+
+    ||
+    True if the left or right conditions are true
+    ______________________________________________________________________________________
+
+    !
+    True if Condition is False
+    False if Condition is True
+    ______________________________________________________________________________________
+
 ------------------------------( Part Five Comments Above )------------------------------->
 
+<?php
+    $temp = 100;
+    $cloudy = false;
+    $age = 25;
+    $citizen = true;
+    $child = false;
+    $senior = true;
 
+    if($temp >= 0 && $temp <= 30){
+        echo"The weather is bad.<br>";
+    } else {
+        echo "The weather is good.<br>";
+    }
 
+    if(!$cloudy){
+        echo "it is not cloudy<br>";
+    } else {
+        echo "it is cloudy<br>";
+    }
 
+    if(!$age >= 18 || !$citizen){
+        echo "you can vote<br>";
+    } else {
+        echo "you can not vote.<br>";
+    }
+
+    if(!$child && !$senior){
+        $ticket = 15;
+    } else {
+        $ticket = 10;
+    }
+    echo "The ticket price is \${$ticket}.<hr>";
+?>
 
 <!------------------------------( Part Six Comments Below )------------------------------
     _____________________________________________________________________________________
 
+    switch
+    replacement to using many elseif statements
+    more efficient, less code
+    _____________________________________________________________________________________
+
 ------------------------------( Part Six Comments Above )------------------------------->
+
+<?php
+    $grade = "A";
+    switch($grade){
+        case "A":
+            echo "You did great.<br>";
+            break;
+        case "B":
+            echo "You good.<br>";
+            break;
+        case "C":
+            echo "You did okay.<br>";
+            break;
+        case "D":
+            echo "You did poorly.<br>";
+            break;
+        case "F":
+            echo "You failed.<br>";
+            break;
+        default:
+            echo "{$grade} is an invalid letter grade.<br>";
+            break;
+    }
+    echo "<hr>";
+?>
+
+<!------------------------------( Part Seven Comments Below )------------------------------
+    _______________________________________________________________________________________
+
+    For Loops
+    repeat some code a certain # of times.
+    _______________________________________________________________________________________
+
+------------------------------( Part Seven Comments Above )------------------------------->
+
+
+
+<!------------------------------( Part Eight Comments Below )------------------------------
+    _______________________________________________________________________________________
+
+    _______________________________________________________________________________________
+
+------------------------------( Part Eight Comments Above )------------------------------->

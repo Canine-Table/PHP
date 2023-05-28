@@ -168,6 +168,9 @@
 <!------------------------------( Part Three Comments Below )------------------------------
     _______________________________________________________________________________________
 
+    Math Functions
+    _______________________________________________________________________________________
+
 ------------------------------( Part Three Comments Above )------------------------------->
 
 <!--( $_POST )--->
@@ -687,100 +690,167 @@
 <!------------------------------( Part Ten Comments Below )------------------------------
     _____________________________________________________________________________________
 
+    isset();
+    returns TRUE if a variable is declared and not null (this does not includes $string = ''; as null)
+
+    empty();
+    returns TRUE if a variable is not declared, false, or null, (this includes $string = ''; as null)
     _____________________________________________________________________________________
 
 ------------------------------( Part Ten Comments Above )------------------------------->
 
+<?php
+    $myString = '';
 
+    if (isset($myString)){
+        echo "the String is set.<br>";
+    } else {
+        echo "the String is NOT set.<br>";
+    }
 
+    if(empty($myString)){
+        echo "the String is empty.<br>";
+    } else {
+        echo "the String is NOT empty.<br>";
+    }
+    echo "<hr>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="index.php" method="post">
+            <div>
+                <span>
+                    <label>Username:</label>
+                    <input type="text" name="username">
+                </span>
+            </div>
+            <div> 
+                <span>
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                </span>
+            </div>
+            <div>
+                <input type="submit" name="login" value="login">
+            </div>
+        </form>
+    </body>
+</html>
+<?php
+    if(isset($_POST["login"])){
+        if(!empty($_POST["username"]) && !empty($_POST["password"])){
+            foreach($_POST as $key => $value){
+                echo "{$key}: {$value}<br>";
+            }
+        } else {
+            echo "you tried logging in.<br>";
+            if(empty($_POST["username"])){
+                echo "username is missing.<br>";
+            }
+            if(empty($_POST["password"])){
+                echo "password is missing.<br>";
+            }
+            echo "login failed.<br>";
+        }
+    }
+    echo "<hr>";
+?>
 
 <!------------------------------( Part Eleven Comments Below )------------------------------
     ________________________________________________________________________________________
 
+    Radio Buttons
     ________________________________________________________________________________________
 
 ------------------------------( Part Eleven Comments Above )------------------------------->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <div><br>
+            <input type="radio" name="credit_card" value="Visa">Visa<br>
+            <input type="radio" name="credit_card" value="Mastercard">Mastercard<br>
+            <input type="radio" name="credit_card" value="American Express">American Express<br><br>
+            <input type="submit" name="confirm" value="confirm">
+        </div>
+    </form>
+</body>
+</html>
+<?php
+    if (isset($_POST["confirm"]) && !empty($_POST["credit_card"])){
+        echo "You selected the " . $_POST["credit_card"];
+    } else {
+        echo "Please select a card from the list above";
+    }
+    echo "<hr>";
+?>
 
 <!------------------------------( Part Twelve Comments Below )------------------------------
     ________________________________________________________________________________________
 
+    Checkbox Buttons
     ________________________________________________________________________________________
 
 ------------------------------( Part Twelve Comments Above )------------------------------->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="index.php" method="post">
+            <div><br>
+                <input type="checkbox" name="pizza" value="Pizza">Pizza<br>
+                <input type="checkbox" name="hamburger" value="Hamburger">Hamburger<br>
+                <input type="checkbox" name="hotdog" value="Hotdog">Hotdog<br>
+                <input type="checkbox" name="toco" value="Toco">Toco<br><br>
+                <input type="submit" name="submit" value="submit">
+            </div>
+        </form>
+    </body>
+</html>
+<?php
+    $selection_count = false;
+    if(isset($_POST["submit"])){
+        foreach($_POST as $key => $value){
+            if(isset($_POST[$key]) && $_POST[$key] != "submit"){
+                echo "You selected the {$value} option.<br>";
+                $selection_count = true;
+            }
+        }
+        if ($selection_count == false){
+            echo "Please make your choice.<br>";
+        }
+    }
+    echo "<hr>";
+?>
 
 <!------------------------------( Part Thirteen Comments Below )------------------------------
     __________________________________________________________________________________________
 
+    Functions
+    write some code once, reuse when you need it
+    type () after function to invoke type nothing after to callback
+    ex. add() subtract() multiply() divide()
     __________________________________________________________________________________________
 
 ------------------------------( Part Thirteen Comments Above )------------------------------->

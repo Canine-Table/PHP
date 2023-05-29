@@ -1064,35 +1064,48 @@
 <!------------------------------( Part Fifteen Comments Below )------------------------------
     _________________________________________________________________________________________
 
+    Hashing
+    transforming sensitive data (passwords) into letters, numbers, and/or symbols
+    via a mathematical process. (similar to encryption)
+    hides the original data from 3rd parties
     _________________________________________________________________________________________
 
 ------------------------------( Part Fifteen Comments Above )------------------------------->
 
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="/php/website/lib/hashing.php">Hashing Here</a><hr>
+    </body>
+</html>
 
 <!------------------------------( Part Fifteen Comments Below )------------------------------
     _________________________________________________________________________________________
 
+    1.) mySQLi Extention
+    2.) PDO (PHP Data Objects)
     _________________________________________________________________________________________
 
 ------------------------------( Part Fifteen Comments Above )------------------------------->
 
-
-
-
-
-
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="/php/website/lib/mySQL.php">Hashing Here</a><hr>
+    </body>
+</html>
 
 <!------------------------------( Part Fifteen Comments Below )------------------------------
     _________________________________________________________________________________________

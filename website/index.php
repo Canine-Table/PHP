@@ -854,3 +854,263 @@
     __________________________________________________________________________________________
 
 ------------------------------( Part Thirteen Comments Above )------------------------------->
+
+<?php
+
+    function is_even(int $number){
+        return $number % 2 ? "{$number} is Odd<br>" : "{$number} is Even<br>";
+    }
+
+    echo is_even(3);
+    echo is_even(4);
+
+    function hypotenuese($a,$b){
+        try{
+            if (is_numeric($a) && is_numeric($b)){
+                return "a: {$a}<br>b: {$b}<br>c: " . round(sqrt(pow($a,2) + pow($b,2)),3) . "<br>";
+            } else {
+                throw new Exception('Invalid input detected');
+            }
+        } catch (Exception $e){
+            return "Caught Exception:" . $e->getMessage();
+        }
+    }
+    echo hypotenuese(3,5);
+    echo hypotenuese(3,'cookie');
+    echo "<hr>"
+?>
+
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    String Functions
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->
+<?php
+    $username = "Canine Table<br>";
+    $phone_number = "123-456-7890<br>";
+    echo strtoupper($username);
+    echo strtolower($username);
+    echo str_repeat(strtoupper($username),3);
+    echo str_replace('-',":",$phone_number);
+    echo str_shuffle(str_replace("<br>","",$username)) . "<br>";
+    echo trim($username);
+    echo strrev(str_repeat(str_replace("<br>","",$username),4)) . "<br>";
+    echo str_pad(str_replace("<br>","",$username),38,"/") . "<br>";
+    echo "Boolean String Compare: " . strcmp($username,$username) . "<br>";
+    echo "String Length: " . strlen($username) ."<br>";
+    echo "First Space Character Position: " . strpos($username," ") . "<br>";
+    echo 'Sub String: ' . substr($username,0,6) . "<br>";
+    echo 'Sub String: ' . substr($username,7);
+    print_r(explode(" ",$username));
+    echo implode('-(imploded)-',explode(" ",$username));
+    echo "<hr>";
+?>
+
+<!------------------------------( Part Sixteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    Sanitize and Validate Input
+    _________________________________________________________________________________________
+
+------------------------------( Part Sixteen Comments Above )------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="index.php" method="post">
+            <div><br>
+                <label>Username:</label>
+                <input type="text" name="user_input">
+            </div>
+            <div><br>
+                <label>Age:</label>
+                <input type="text" name="age_input">
+            </div>
+            <div><br>
+                <label>Email:</label>
+                <input type="text" name="email_input">
+            </div>
+            <div><br>
+                <label>Validate:</label>
+                <input type="text" name="validate_input">
+            </div>
+            <div><br>
+                <input type="submit" name="login" value="login">
+            </div><br>
+        </form>
+    </body>
+</html>
+<?php
+    if(isset($_POST["login"]) && !empty($_POST["user_input"]) || !empty($_POST["age_input"]) || !empty($_POST["email_input"]) || !empty(filter_input(INPUT_POST,"validate_input",FILTER_VALIDATE_INT))){
+        $username = filter_input(INPUT_POST,"user_input",FILTER_SANITIZE_SPECIAL_CHARS);
+        $age = filter_input(INPUT_POST,"age_input",FILTER_SANITIZE_NUMBER_INT);
+        $email = filter_input(INPUT_POST,"email_input",FILTER_SANITIZE_EMAIL);
+        $validate = filter_input(INPUT_POST,"validate_input",FILTER_VALIDATE_INT);
+        echo "Your username is {$username}<br>";
+        echo "Your age is {$age}<br>";
+        echo "Your email is {$email}<br>";
+        if(!empty($validate)){
+            echo "Your entry is {$validate}<br>";
+        } else {
+            echo "Invalid entry<br>";
+        }
+    } else {
+        echo "Please enter your inputs" . "<br>";
+    }
+    echo "<hr>";
+?>
+
+
+<!------------------------------( Part Seventeen Comments Below )------------------------------
+    ___________________________________________________________________________________________
+
+    Include Function
+    include()
+    copies the content of a file (php/html/text)
+    and includes it in your php file.
+    sections of our website become reusable.
+    changes only needed to be made in one place.
+    ___________________________________________________________________________________________
+
+------------------------------( Part Seventeen Comments Above )------------------------------->
+
+<?php
+    include("lib/header.html");
+    include("lib/footer.html");
+?>
+
+<!------------------------------( Part Eighteen Comments Below )------------------------------
+    __________________________________________________________________________________________
+
+    Cookies
+    Information about a user stored in a user's webrowser
+    targeted advertisements, browsing preferences, and other
+    non-sensitive data
+    __________________________________________________________________________________________
+
+------------------------------( Part Eighteen Comments Above )------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="/php/website/lib/cookies.php">Cookies Here</a><hr>
+    </body>
+</html>
+
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    Sessions
+    SGB used to store information on a user to be used across mutiple pages.
+    A user is assigned a session-id ex, login credentials.
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="/php/website/lib/login.php">Login Here</a><hr>
+    </body>
+</html>
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    $_SERVER
+    SGB that contains headers, paths, and script locations
+    the entries in this array are created by the web server
+    shows nearly everything you need to know about the current web page env.
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <a href="/php/website/lib/server.php">Server Here</a><hr>
+    </body>
+</html>
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->
+
+
+
+
+
+
+
+
+
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->
+
+
+
+
+
+
+
+
+<!------------------------------( Part Fifteen Comments Below )------------------------------
+    _________________________________________________________________________________________
+
+    _________________________________________________________________________________________
+
+------------------------------( Part Fifteen Comments Above )------------------------------->

@@ -1103,7 +1103,7 @@
         <title>Document</title>
     </head>
     <body>
-        <a href="/php/website/lib/mySQL.php">Hashing Here</a><hr>
+        <a href="/php/website/lib/mySQL.php">my SQL Server Here</a><hr>
     </body>
 </html>
 
